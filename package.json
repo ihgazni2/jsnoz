@@ -1,8 +1,8 @@
 {
     "name": "jsnoz",
-    "version": "1.4.6",
+    "version": "1.4.7",
     "description": "date timezone toolset",
-    "main": "index.js",
+    "main": "dist/jsnoz.js",
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1"
     },

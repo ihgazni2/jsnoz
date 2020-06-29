@@ -7,7 +7,8 @@
 
 
 ## Usage
-
+        > const  moment = require('moment-timezone')
+        > var mom = moment(new Date())
         > var {dt2dict} = require('jsnoz').ndnoz
         > mom
         Moment<2020-06-29T20:04:57+08:00>
