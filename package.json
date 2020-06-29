@@ -1,0 +1,31 @@
+{
+    "name": "jsnoz",
+    "version": "1.4.6",
+    "description": "date timezone toolset",
+    "main": "index.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "keywords": [
+        "time",
+        "date",
+        "timezone"
+    ],
+    "author": "dli",
+    "license": "MIT",
+    "files": [
+        "doc/*",
+        "dist/*"
+    ],
+    "devDependencies": {
+        "efdir": ">1.0.1",
+        "jsdoc": ">1.6.3",
+        "webpack": "^4.35.3",
+        "webpack-cli": "^3.3.5"
+    },
+    "dependencies": {
+        "moment": "^2.27.0",
+        "moment-isocalendar": "^0.1.0",
+        "moment-timezone": "^0.5.31"
+    }
+}
