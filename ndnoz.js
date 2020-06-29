@@ -265,6 +265,11 @@ function dt2utc_str(mom,fmt='YYYY-MM-DD HH:mm:ss Z') {
  */
 
 
-
+module.exports = {
+    dt2dict,
+    dt2ts,
+    dt2local_str,
+    dt2utc_str
+}
 
 

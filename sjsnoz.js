@@ -1,5 +1,5 @@
-const moment = require('moment')
-let _ = require('moment-timezone')
+//const moment = require('moment')
+//let _ = require('moment-timezone')
 const cmmn = require('./cmmn.js')
 const {
     DICT_KL,
@@ -48,8 +48,11 @@ function get_yq_via_m(m) {
 }
 
 function is_leap_year(y) {
-    const mom = moment(y,'YYYY')
-    return(mom.isLeapYear())
+    if( (y%4===0 && y%100!==0 )|| (y%400===0)){
+        return(true)
+    } else {
+        return(false)
+    }
 }
 
 function get_days_num_of_year(y) {
@@ -82,6 +85,9 @@ function ymd2str(y,m,d) {
     m = month2str(m)
     d = day2str(d)
     return(y+'-'+m+'-'+d)
+}
+
+function get_wd(y,m,d) {
 }
 
 
