@@ -1,5 +1,4 @@
-const moment = require('moment')
-let _ = require('moment-timezone')
+const moment = require('moment-timezone')
 const cmmn = require('./cmmn.js')
 const {
     DICT_KL,
@@ -253,6 +252,14 @@ function dt2utc_str(mom,fmt='YYYY-MM-DD HH:mm:ss Z') {
     let dt = new Date(ts) 
     let utc_mom = moment(dt)
     utc_mom.tz('GMT')
+    return(utc_mom.format(fmt))
+}
+
+function dt2tmzone_str(mom,tz,fmt='YYYY-MM-DD HH:mm:ss Z') {
+    let ts = mom.valueOf()
+    let dt = new Date(ts)
+    let utc_mom = moment(dt)
+    utc_mom.tz(tz)
     return(utc_mom.format(fmt))
 }
 

@@ -7,6 +7,11 @@
 
 
 ## Usage
+
+### without moment js,using require('jsnoz').sjsnoz
+
+
+### with moment js, using require('jsnoz').ndnoz
         > const  moment = require('moment-timezone')
         > var mom = moment(new Date())
         > var {dt2dict} = require('jsnoz').ndnoz

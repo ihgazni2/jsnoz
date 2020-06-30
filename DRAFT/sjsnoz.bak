@@ -312,21 +312,84 @@ function z2moffset(z) {
     return(m)
 }
 
-function get_z(dt) {
-    let moffset = - dt.getTimezoneOffset()
-    let z = moffset2z(moffset)
-    return(z)
-}
-
 
 
 function dt2local_dict(dt) {
-    let z = get_z(dt) 
-    return(dt2dict(dt,z))
+    const y =     dt.getFullYear();
+    const m =     dt.getMonth() + 1;
+    const d =     dt.getDate();
+    const h =     dt.getHours();
+    const min =   dt.getMinutes();
+    const s =     dt.getSeconds();
+    const ms =    dt.getMilliseconds();
+    const mts =   dt.getTime();
+    const ts =        mts /1000;
+    const moffset = -dt.getTimezoneOffset();
+    const z =      moffset2z(moffset);
+    const tzname = z;
+    const zone = z;
+    const soffset = moffset * 60;
+    const msoffset = soffset * 1000;
+    const yq = get_yq_via_m(m);
+    const yw = get_local_yw(y,m,d);   //
+    const yd = get_yd(y,m,d);   //
+    const qm = get_qm(m);       // 
+    const qw = get_local_qw(y,yq,m,d); //
+    const qd = get_local_qd(y,yq,m,d);
+    const mt = get_mt(m,d);
+    const mw = get_local_mw(y,m,d);
+    const td = get_td(y,m,d);   
+    let wd = get_local_wd(y,m,d); 
+    let dict = {
+        y,m,d,
+        h,min,s,ms,
+        ts,mts,
+        z,zone,tzname,soffset,msoffset,
+        yq,yw,yd,
+        qm,qw,qd,
+        mt,mw,
+        td,wd
+    }
+    return(dict)
 }
 
 function dt2utc_dict(dt) {
-    return(dt2dict(dt,'+0000'))
+    const y =     dt.getUTCFullYear();
+    const m =     dt.getUTCMonth() + 1;
+    const d =     dt.getUTCDate();
+    const h =     dt.getUTCHours();
+    const min =   dt.getUTCMinutes();
+    const s =     dt.getUTCSeconds();
+    const ms =    dt.getUTCMilliseconds();
+    const mts =   dt.getTime();
+    const ts =        mts /1000;
+    const moffset = 0;
+    const z =      '+0000';
+    const tzname = z;
+    const zone = z;
+    const soffset = 0;
+    const msoffset = 0;
+    const yq = get_yq_via_m(m);
+    const yw = get_utc_yw(y,m,d);   //
+    const yd = get_yd(y,m,d);   //
+    const qm = get_qm(m);       //
+    const qw = get_utc_qw(y,yq,m,d); //
+    const qd = get_utc_qd(y,yq,m,d);
+    const mt = get_mt(m,d);
+    const mw = get_utc_mw(y,m,d);
+    const td = get_td(y,m,d);
+    let wd = get_utc_wd(y,m,d);
+    let dict = {
+        y,m,d,
+        h,min,s,ms,
+        ts,mts,
+        z,zone,tzname,soffset,msoffset,
+        yq,yw,yd,
+        qm,qw,qd,
+        mt,mw,
+        td,wd
+    }
+    return(dict)
 }
 
 function dt2dict(dt,z) {
@@ -380,7 +443,8 @@ function dt2ts(dt){
 
 function dt2local_str(dt) {
     //fmt='YYYY-MM-DD HH:mm:ss Z'
-    let z = get_z(dt) 
+    let moffset = - dt.getTimezoneOffset()
+    let z = moffset2z(moffset)
     return(dt2str(dt,z))
 }
 
