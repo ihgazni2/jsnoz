@@ -21,7 +21,7 @@
         
         var dt = get_dt("2020-06-29 07:00:00")
         //Mon Jun 29 2020 07:00:00 GMT+0800 (中国标准时间)
-        var moffset = dt.getTimezoneOffset()
+        var moffset = -dt.getTimezoneOffset()
         var z = moffset2z(moffset)
         //+0800
         var local_str = dt2str(dt,'+0800')
