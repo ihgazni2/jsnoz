@@ -407,7 +407,48 @@ function dt2str(dt,z) {
 
 */
 
-
+module.exports = {
+    get_yq_via_m,
+    is_leap_year,
+    get_days_num_of_year,
+    year2str,
+    month2str,
+    day2str,
+    ym2str,
+    ymd2str,
+    hour2str,
+    min2str,
+    sec2str,
+    hms2str,
+    get_dt,
+    get_local_wd,
+    get_utc_wd,
+    get_days_num_of_month,
+    get_yd,
+    get_local_yw,
+    get_utc_yw,
+    get_qm,
+    get_fst_date_of_q,
+    get_local_qw,
+    get_utc_qw,
+    get_local_qd,
+    get_utc_qd,
+    get_mt,
+    get_fst_date_of_m,
+    get_local_mw,
+    get_utc_mw,
+    get_td,
+    moffset2z,
+    z2moffset,
+    get_z,
+    dt2local_dict,
+    dt2utc_dict,
+    dt2dict,
+    dt2ts,
+    dt2local_str,
+    dt2utc_str,
+    dt2str
+}
 
 
 
