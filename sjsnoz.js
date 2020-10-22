@@ -3,8 +3,9 @@ const {
     DICT_KL,
     DATE_FMT_MD,
     NAME_TO_FMT_DICT,
-    FMT_TO_NAME_DICT
-} = require('./const.js')
+    FMT_TO_NAME_DICT,
+    UNITS
+} = require('./consts.js')
 
 
 /*
@@ -406,6 +407,48 @@ function dt2str(dt,z) {
 > Mon Jun 29 2020 12:52:37 GMT+0800 (中国标准时间)
 
 */
+function is_date(o) {
+    let cond = (o instanceof Date)
+    return(cond)
+}
+
+
+function obj2local_dict(o) {
+    if(is_date(o)){return(dt2local_dict(o))}
+    else if(typeof(o) === 'number') { return(dt2local_dict(new Date(o)))}
+    else if(typeof(o) === 'string') { return(dt2local_dict(new Date(o)))}
+    else if (typeof(o) === 'object') { return(o)}
+    else {
+        throw(new Error("only can be string date dict"))
+    }
+}
+
+
+function sub(o0,o1) {
+    let mts0 = obj2local_dict(o0).mts
+    let mts1 = obj2local_dict(o1).mts
+    let diff = mts0 - mts1
+    let d = cmmn.get_unit_dict(diff,[24,60,60,1000],['d','h','min','s','ms'])
+    return(d)
+}
+
+
+function dhmsms_dict_to_mts(d) {
+    return(d.d*UNITS.DAY_MS + d.h * UNITS.HOUR_MS + d.min * UNITS.MIN_MS + d.s*UNITS.S_MS  + d.ms)
+}
+function dhmsms_dict_to_ts(d) {
+    return(d.d*UNITS.DAY_S + d.h * UNITS.HOUR_S + d.min * UNITS.MIN_S + d.s  + d.ms/UNITS.S_MS)
+}
+function dhmsms_dict_to_min(d) {
+    return(d.d*UNITS.DAY_MIN + d.h * UNITS.HOUR_MIN + d.min  + d.s/UNITS.MIN_S  + d.ms/UNITS.MIN_MS)
+}
+function dhmsms_dict_to_hour(d) {
+    return(d.d*UNITS.DAY_HOUR + d.h + d.min/UNITS.HOUR_MIN  + d.s/UNITS.HOUR_S  + d.ms/UNITS.HOUR_MS)
+}
+function dhmsms_dict_to_day(d) {
+    return(d.d + d.h/UNITS.DAY_HOUR + d.min/UNITS.DAY_MIN  + d.s/UNITS.DAY_S  + d.ms/UNITS.DAY_MS)
+}
+
 
 module.exports = {
     get_yq_via_m,
@@ -447,7 +490,14 @@ module.exports = {
     dt2ts,
     dt2local_str,
     dt2utc_str,
-    dt2str
+    dt2str,
+    obj2local_dict,
+    sub,
+    dhmsms_dict_to_mts,
+    dhmsms_dict_to_ts,
+    dhmsms_dict_to_min,
+    dhmsms_dict_to_hour,
+    dhmsms_dict_to_day,
 }
 
 

@@ -1,0 +1,10 @@
+RESOURCE/
+TEST/
+TOOL/
+dist/*.map
+node_modules/
+readme.rst
+README.rst
+SHELL/
+docs/
+

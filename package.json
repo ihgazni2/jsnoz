@@ -1,6 +1,6 @@
 {
     "name": "jsnoz",
-    "version": "1.4.8",
+    "version": "1.6.1",
     "description": "date timezone toolset",
     "main": "dist/jsnoz.js",
     "scripts": {
@@ -9,14 +9,11 @@
     "keywords": [
         "time",
         "date",
-        "timezone"
+        "timezone",
+        "dict"
     ],
     "author": "dli",
     "license": "MIT",
-    "files": [
-        "doc/*",
-        "dist/*"
-    ],
     "devDependencies": {
         "efdir": ">1.0.1",
         "jsdoc": ">1.6.3",
@@ -24,8 +21,5 @@
         "webpack-cli": "^3.3.5"
     },
     "dependencies": {
-        "moment": "^2.27.0",
-        "moment-isocalendar": "^0.1.0",
-        "moment-timezone": "^0.5.31"
     }
 }

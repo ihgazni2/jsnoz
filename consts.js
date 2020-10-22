@@ -155,9 +155,22 @@ const FMT_TO_NAME_DICT = {
     'YYYY-MM-DD HH:mm:ss z Z':'YmdHMSZz'
 }
 
+const UNITS = {
+    DAY_MS: 1000*60*60 *24,
+    DAY_S : 60*60 *24,
+    DAY_MIN : 1440,
+    DAY_HOUR : 24,
+    HOUR_MS : 1000*60*60,
+    HOUR_S : 60*60,
+    HOUR_MIN : 60 ,
+    MIN_MS : 1000*60,
+    MIN_S : 60,
+    S_MS : 1000,
+}
 
 
 module.exports = {
+    UNITS,
     DICT_KL,
     PY_DATE_FMT_MD,
     DATE_FMT_MD,
