@@ -2,7 +2,7 @@
 
 - simple time,timezone util
 - WITHOUT dependancy with moment
-
+- the main file is 11.1kB dist/jsnoz.js
 
 # Install
 
@@ -50,7 +50,7 @@
             dt2local_dict,
             dt2utc_dict,
             dt2dict
-        } = require('jsnoz')
+        } = require('jsnoz').sjsnoz
         
         var dt = get_dt("2020-06-29 07:00:00")
         //Mon Jun 29 2020 07:00:00 GMT+0800 (中国标准时间)
