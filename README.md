@@ -14,7 +14,9 @@
 - var sjsnoz = require('jsnoz').sjsnoz
 - var CONSTS = require('jsnoz').const
 
-    /*
+
+## DEFINITONS
+
         #y            year                  年
         #m            month                                月
         #d            day                                  日
@@ -37,7 +39,7 @@
         #mw           week-of-month                        每月第几周
         #wd           isoweekday                           星期几  星期日是7
         #dt           daytime
-     */
+
 
 ### without moment js,using require('jsnoz').sjsnoz
         var {
