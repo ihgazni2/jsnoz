@@ -93,6 +93,22 @@ function * mwd_from_lst(y,m,n) {
 }
 
 
+function unslct_wd(y,already_slcted,choosed) {
+    already_slcted = already_slcted.filter(
+        d=>  !choosed.includes(d.wd) && (y === d.y)
+    )
+    return(already_slcted)
+}
+
+function slct_wd(y,already_slcted,choosed) {
+    let all_yds = Array.from(day.yd(y))
+    all_yds = all_yds.filter(d=>choosed.includes(d.wd))
+    already_slcted = already_slcted.filter(
+        d=>  !(y === d.y)
+    )
+    already_slcted = already_slcted.concat(all_yds)
+    return(already_slcted)
+}
 
 module.exports = {
     validate_wd,
@@ -104,4 +120,6 @@ module.exports = {
     lst_mwd,
     mwd,
     mwd_from_lst,
+    unslct_wd,
+    slct_wd
 }

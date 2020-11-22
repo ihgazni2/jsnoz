@@ -382,6 +382,25 @@
     var g = day.md_from_lst(y.m) //generator
 
 
+    var day = require("jsnoz").day
+    var slcted = Array.from(day.yd(2020)).slice(300)
+    var arr = day.unslct_md(2020,slcted,[1,2,3,4,5,6,7,8,9,10,20,21,22,23,24,25,26,27])
+    > arr.map(r=>r.d)
+    [
+      28, 29, 30, 31, 11, 12, 13, 14, 15,
+      16, 17, 18, 19, 28, 29, 30, 11, 12,
+      13, 14, 15, 16, 17, 18, 19, 28, 29,
+      30, 31
+    ]
+
+
+    var slcted = []
+
+    var arr = day.slct_md(2020,slcted,[1,2,3,4,5,6,7,8,9,10,20,21,22,23,24,25,26,27])
+    > arr.length
+    216
+    >
+
 
 ##week
 

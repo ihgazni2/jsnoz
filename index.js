@@ -3,7 +3,7 @@ const sjsnoz = require('./sjsnoz.js')
 const consts = require('./consts.js') 
 const cmmn = require('./cmmn.js')
 const day = require("./day")
-
+const week = require("./week")
 
 module.exports = {
 //    ndnoz,
@@ -11,4 +11,5 @@ module.exports = {
     consts,
     cmmn,
     day,
+    week
 }

@@ -73,6 +73,26 @@ function * md_from_lst(y,m) {
     }
 }
 
+function unslct_md(y,already_slcted,choosed) {
+    //choosed 1-31
+    //从已选择的过滤掉
+    //符合当前年份的
+    already_slcted = already_slcted.filter(
+        d=>  !choosed.includes(d.d) && (y === d.y)
+    )
+    return(already_slcted)
+}
+
+function slct_md(y,already_slcted,choosed) {
+    let all_yds = Array.from(yd(y))
+    all_yds = all_yds.filter(d=>choosed.includes(d.d))
+    already_slcted = already_slcted.filter(
+        d=>  !(y === d.y)
+    )      
+    already_slcted = already_slcted.concat(all_yds)
+    return(already_slcted)
+}
+
 
 module.exports =  {
     fst_yd,
@@ -82,5 +102,7 @@ module.exports =  {
     fst_md,
     lst_md,
     md,
-    md_from_lst
+    md_from_lst,
+    unslct_md,
+    slct_md
 }
