@@ -152,7 +152,7 @@ function get_days_num_of_month(y,m) {
 }
 
 function get_yd(y,m,d) {
-    yd = 0
+    let yd = 0
     for(let i=1;i<m;i++) {
         yd = yd + get_days_num_of_month(y,i)
     }

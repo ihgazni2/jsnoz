@@ -369,6 +369,33 @@
     }
     >
 
+##day
+
+    const day = require("jsnoz").day
+    day.fst_yd(y)
+    day.lst_yd(y)
+    var g = day.yd(y)  //generator
+    var g = day.yd_from_lst(y) //generator
+    day.fst_md(y,m)
+    day.lst_md(y,m)
+    var g = day.md(y,m)  //generator
+    var g = day.md_from_lst(y.m) //generator
+
+
+
+##week
+
+    const week = require("jsnoz").week
+    day.fst_ywd(y,n)  //n = 1,2,3,4,5,6,7
+    day.lst_ywd(y,n)
+    var g = day.ywd(y,n)  //generator
+    var g = day.ywd_from_lst(y,n) //generator
+    day.fst_mwd(y,m,n)
+    day.lst_mwd(y,m,n)
+    var g = day.mwd(y,m,n)  //generator
+    var g = day.mwd_from_lst(y,m,n) //generator
+
+
 ## Similar Python Project.........
 -------------------------------------------------------
   
